@@ -1,3 +1,7 @@
+
+
+const myLibrary = [];
+
 function Book(title, author, numPages, isRead) {
     this.title = title;
     this.author = author;
@@ -11,4 +15,24 @@ function Book(title, author, numPages, isRead) {
     }
 }
 
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
+
+function displayLibrary() {
+    const libraryContainer = document.querySelector('#libraryContainer');
+    console.log(libraryContainer);
+    myLibrary.forEach((book) => {
+        const bookElement = document.createElement('div');
+        bookElement.textContent = book.title;
+        libraryContainer.appendChild(bookElement);
+    });
+}
+
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+const theBible = new Book("The Bible", "Various Authors", 1200, true);
+
+addBookToLibrary(theHobbit);
+addBookToLibrary(theBible);
+
+displayLibrary();

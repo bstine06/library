@@ -1,6 +1,12 @@
 
 
 const myLibrary = [];
+const newBookButton = document.querySelector("#newBookButton");
+
+newBookButton.addEventListener("click", e=>{
+    //TODO: this event listener should cause modal form to appear
+    console.log("NEW BOOK pressed");
+});
 
 function Book(title, author, numPages, isRead) {
     this.title = title;
@@ -21,7 +27,6 @@ function addBookToLibrary(book) {
 
 function displayLibrary() {
     const libraryContainer = document.querySelector('#libraryContainer');
-    console.log(libraryContainer);
     myLibrary.forEach((book) => {
         const bookElement = document.createElement('div');
         bookElement.textContent = book.title;

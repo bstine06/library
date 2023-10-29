@@ -2,10 +2,10 @@
 
 const myLibrary = [];
 const newBookButton = document.querySelector("#newBookButton");
+const newBookFormDialog = document.querySelector("#newBookFormDialog");
 
 newBookButton.addEventListener("click", e=>{
-    //TODO: this event listener should cause modal form to appear
-    console.log("NEW BOOK pressed");
+    newBookFormDialog.showModal();
 });
 
 function Book(title, author, numPages, isRead) {

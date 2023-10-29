@@ -19,10 +19,21 @@
             <div class="form-labels">
                 <label for="title">Title:</label>
                 <label for="author">Author:</label>
+                <label for="num-pages">Pages:</label>
+                <p>Done:</p>
             </div>
             <div class="form-inputs">
-                <input type="text" id="title">
-                <input type="text" id="author">
+                <input type="text" id="title" name="title">
+                <input type="text" id="author" name="author">
+                <input type="number" id="num-pages" name="num-pages" min="0">
+                <div>
+                  <input type="radio" id="yes-read" name="is-read" value="yes">
+                  <label for="yes-read">Yes</label>
+                </div>
+                <div>
+                  <input type="radio" id="not-read" name="is-read" value="no">
+                  <label for="not-read">No</label>
+                </div>
             </div>
           </div>
           <br>

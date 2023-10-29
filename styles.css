@@ -2,3 +2,25 @@ html {
     color:#FFF;
     background-color: #222;
 }
+
+.form-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container {
+    display: flex;
+    gap: 12px;
+}
+
+.form-container > div {
+    flex-basis: 50%;
+}

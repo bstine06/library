@@ -47,10 +47,32 @@ function displayLibrary() {
     libraryContainer.innerHTML = "";
     myLibrary.forEach((book) => {
         const bookElement = document.createElement('div');
-        bookElement.textContent = book.title;
+        bookElement.classList.add("book-element");
+
+        const title = document.createElement('h3');
+        title.textContent = book.title;
+        bookElement.appendChild(title);
+
+        const author = document.createElement('p');
+        author.textContent = book.author;
+        bookElement.appendChild(author);
+
+        const numPages = document.createElement('p');
+        numPages.textContent = 'pages: ' + book.numPages;
+        bookElement.appendChild(numPages);
+
+        const isRead = document.createElement("input");
+        isRead.type = "checkbox";
+        isRead.id =  "isRead" ;
+        const isReadLabel = document.createElement("label");
+        isReadLabel.htmlFor =  "isRead";
+        isReadLabel.textContent = "finished reading? "
+        bookElement.appendChild(isReadLabel);
+        bookElement.appendChild(isRead);
+
         libraryContainer.appendChild(bookElement);
     });
-}``
+}
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 const theBible = new Book("The Bible", "Various Authors", 1200, true);

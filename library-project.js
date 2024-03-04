@@ -26,6 +26,11 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function deleteBookFromLibrary(i) {
+    myLibrary.splice(i,1);
+    displayLibrary();
+}
+
 form.onsubmit = function() {
     let title = form.title.value;
     let author = form.author.value;
@@ -45,9 +50,11 @@ form.onsubmit = function() {
 function displayLibrary() {
     const libraryContainer = document.querySelector('#libraryContainer');
     libraryContainer.innerHTML = "";
-    myLibrary.forEach((book) => {
+    myLibrary.forEach((book, i) => {
+        book.i = i;
         const bookElement = document.createElement('div');
         bookElement.classList.add("book-element");
+        bookElement.setAttribute('id',`book${i}`);
 
         const title = document.createElement('h3');
         title.textContent = book.title;
@@ -61,18 +68,31 @@ function displayLibrary() {
         numPages.textContent = 'pages: ' + book.numPages;
         bookElement.appendChild(numPages);
 
+        const isReadWrapper = document.createElement('div');
         const isRead = document.createElement("input");
         isRead.type = "checkbox";
         isRead.id =  "isRead" ;
+        isRead.checked = book.isRead;
         const isReadLabel = document.createElement("label");
         isReadLabel.htmlFor =  "isRead";
         isReadLabel.textContent = "finished reading? "
-        bookElement.appendChild(isReadLabel);
-        bookElement.appendChild(isRead);
+        isReadWrapper.appendChild(isReadLabel);
+        isReadWrapper.appendChild(isRead);
+        bookElement.appendChild(isReadWrapper);
+
+        const deleteBookBtn = document.createElement("button");
+        deleteBookBtn.textContent = "delete";
+        deleteBookBtn.classList.add("deleteBtn");
+        deleteBookBtn.addEventListener("click", e=>{
+            deleteBookFromLibrary(i);
+        })
+        bookElement.appendChild(deleteBookBtn)
 
         libraryContainer.appendChild(bookElement);
     });
 }
+
+
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 const theBible = new Book("The Bible", "Various Authors", 1200, true);

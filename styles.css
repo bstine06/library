@@ -29,6 +29,7 @@ html {
 
 h1 {
     margin-bottom: 0;
+    width: 70vw;
 }
 
 #newBookButton {
@@ -45,9 +46,19 @@ h1 {
     border-radius: 5px;
     width: min(25em, 70vw);
     padding: 1em;
+    display: grid;
+    gap: 10px;
+}
+
+p {
+    margin: 0;
 }
 
 h3 {
     padding: 0;
     margin: 0;
+}
+
+button.deleteBtn {
+    max-width: 6em;
 }

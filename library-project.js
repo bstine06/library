@@ -50,7 +50,7 @@ function displayLibrary() {
         bookElement.textContent = book.title;
         libraryContainer.appendChild(bookElement);
     });
-}
+}``
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 const theBible = new Book("The Bible", "Various Authors", 1200, true);

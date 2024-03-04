@@ -3,6 +3,7 @@
 const myLibrary = [];
 const newBookButton = document.querySelector("#newBookButton");
 const newBookFormDialog = document.querySelector("#newBookFormDialog");
+const form = document.querySelector("#newBookForm");
 
 newBookButton.addEventListener("click", e=>{
     newBookFormDialog.showModal();
@@ -25,8 +26,25 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+form.onsubmit = function() {
+    let title = form.title.value;
+    let author = form.author.value;
+    let numPages = form.numPages.value;
+    let isRead = form.isRead.value;
+    if (title == '' && author=='' && numPages=='' && isRead=='') return false; // ignore empty submit
+
+    const newBook = new Book(title, author, numPages, isRead);
+    console.log('submit');
+    console.log(newBook);
+    addBookToLibrary(newBook);
+    displayLibrary(newBook);
+    newBookFormDialog.close();
+    return false;
+  };
+
 function displayLibrary() {
     const libraryContainer = document.querySelector('#libraryContainer');
+    libraryContainer.innerHTML = "";
     myLibrary.forEach((book) => {
         const bookElement = document.createElement('div');
         bookElement.textContent = book.title;

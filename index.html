@@ -14,7 +14,7 @@
     </div>
     <dialog id="newBookFormDialog">
         <p>Add a new book</p>
-        <form method="dialog">
+        <form method="dialog" id="newBookForm">
           <div class="form-container">
             <div class="form-labels">
                 <label for="title">Title:</label>
@@ -25,19 +25,19 @@
             <div class="form-inputs">
                 <input type="text" id="title" name="title">
                 <input type="text" id="author" name="author">
-                <input type="number" id="num-pages" name="num-pages" min="0">
+                <input type="number" id="num-pages" name="numPages" min="0">
                 <div>
-                  <input type="radio" id="yes-read" name="is-read" value="yes">
+                  <input type="radio" id="yes-read" name="isRead" value="yes">
                   <label for="yes-read">Yes</label>
                 </div>
                 <div>
-                  <input type="radio" id="not-read" name="is-read" value="no">
+                  <input type="radio" id="not-read" name="isRead" value="no">
                   <label for="not-read">No</label>
                 </div>
             </div>
           </div>
           <br>
-          <button>OK</button>
+          <input type="submit" value="OK"></input>
           
         </form>
     </dialog>      

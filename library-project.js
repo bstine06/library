@@ -73,6 +73,13 @@ function displayLibrary() {
         isRead.type = "checkbox";
         isRead.id =  "isRead" ;
         isRead.checked = book.isRead;
+        isRead.addEventListener("change", function() {
+            if (this.checked) {
+                book.isRead = true;
+            } else {
+                book.isRead = false;
+            }
+        });
         const isReadLabel = document.createElement("label");
         isReadLabel.htmlFor =  "isRead";
         isReadLabel.textContent = "finished reading? "

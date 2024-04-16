@@ -9,17 +9,21 @@ newBookButton.addEventListener("click", e=>{
     newBookFormDialog.showModal();
 });
 
-function Book(title, author, numPages, isRead) {
-    this.title = title;
-    this.author = author;
-    this.numPages = numPages;
-    this.isRead = isRead;
+class Book {
 
-    this.info = function() {
-        var info = `${title} by ${author}, ${numPages} pages, `;
+    constructor(title, author, numPages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.numPages = numPages;
+        this.isRead = isRead;
+    }
+
+    info() {
+        let info = `${title} by ${author}, ${numPages} pages, `;
         info += isRead ? "read" : "not read yet";
         return info;
     }
+
 }
 
 function addBookToLibrary(book) {

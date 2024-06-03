@@ -64,6 +64,7 @@ class LibraryDisplayController {
             }
             const newBook = new Book(title, author, numPages, isRead);
             this.addBook(newBook);
+            this.form.reset();
             return false;
         });
     }

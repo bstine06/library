@@ -37,6 +37,22 @@ class LibraryDisplayController {
             newBookFormDialog.showModal();
         });
 
+        this.title = document.getElementById("title");
+        title.addEventListener('input', function() {
+            this.setCustomValidity("");  // Clear any previous custom validity message
+            if (!this.checkValidity()) {
+                this.setCustomValidity("You must enter a valid title.");
+            }
+        });
+
+        this.author = document.getElementById("author");
+        author.addEventListener('input', function() {
+            this.setCustomValidity("");  // Clear any previous custom validity message
+            if (!this.checkValidity()) {
+                this.setCustomValidity("You must enter a valid author.");
+            }
+        });
+
         this.form.addEventListener("submit", (event) => {
             event.preventDefault();
             const title = event.target.elements.title.value;

@@ -62,3 +62,7 @@ h3 {
 button.deleteBtn {
     max-width: 6em;
 }
+
+.error {
+    color: red;
+}
